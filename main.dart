@@ -1,16 +1,13 @@
-void main(arg) {
-  Map persona = {
-    'nombre': 'Fernando',
-    'edad': 35,
-    'soltero': false,
-    true: false,
-    1: 100,
-    2: 300,
-    3: 600,
-    4: 1800,
-  };
+void main() {
+  final nombre = 'Steven';
+  //saludar('Greetings', nombre);
+  salu2(nombre: nombre);
+}
 
-  persona.addAll({5: 'Se te apago la moto'});
+void saludar(String msg, [String persona = '--no name--']) {
+  print('$msg $persona');
+}
 
-  print(persona[5]);
+void salu2({String nombre = '--no name--', String? mensaje}) {
+  print('$mensaje $nombre');
 }
