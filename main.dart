@@ -1,13 +1,18 @@
 void main() {
-  final nombre = 'Steven';
-  //saludar('Greetings', nombre);
-  salu2(nombre: nombre);
+  final wolverine = Heroe(nombre: 'Logan', poder: 'Regeneracion');
+  final vision = Heroe(nombre: 'Vision', poder: 'Rayos X');
+
+  print(wolverine);
+  print(vision);
 }
 
-void saludar(String msg, [String persona = '--no name--']) {
-  print('$msg $persona');
-}
+class Heroe {
+  String nombre;
+  String poder;
 
-void salu2({String nombre = '--no name--', String? mensaje}) {
-  print('$mensaje $nombre');
+  Heroe({required this.nombre, required this.poder});
+
+  String toString() {
+    return 'Heroe: nombre: ${this.nombre} poder: ${this.poder}';
+  }
 }
