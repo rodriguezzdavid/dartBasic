@@ -1,24 +1,30 @@
-void main() {
-  final rawJson = {'nombre': 'Tony Stark', 'poder': 'Dinero'};
-  final ironman =
-      new Heroe(nombre: rawJson['nombre']!, poder: rawJson['poder']!);
-  //final ironman = Heroe.fromJson( rawJson );
-  final iroman = Heroe.fromJson(rawJson);
+import 'dart:math' as math;
 
-  print(ironman);
+void main() {
+  final cuadrado = new Cuadrado(2);
+
+  cuadrado.area = 100;
+
+  print('area: ${cuadrado.calculaArea()}');
+
+  print('lado: ${cuadrado.lado}');
+  print('area get: ${cuadrado.area}');
 }
 
-class Heroe {
-  String nombre;
-  String poder;
+class Cuadrado {
+  double lado; // lado * lado
 
-  Heroe({required this.nombre, required this.poder});
+  double get area {
+    return this.lado * this.lado;
+  }
 
-  Heroe.fromJson(Map<String, String> json)
-      : this.nombre = json['nombre']!,
-        this.poder = json['poder'] ?? 'No tiene poder';
+  set area(double valor) {
+    this.lado = math.sqrt(valor);
+  }
 
-  String toString() {
-    return 'Heroe: nombre: ${this.nombre} poder: ${this.poder}';
+  Cuadrado(double lado) : this.lado = lado;
+
+  double calculaArea() {
+    return this.lado * this.lado;
   }
 }
