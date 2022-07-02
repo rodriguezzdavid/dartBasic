@@ -1,30 +1,40 @@
-import 'dart:math' as math;
+//import 'dart:math' as math;
 
 void main() {
-  final cuadrado = new Cuadrado(2);
+  final perro = new Perro();
+  final gato = new Gato();
+  final pato = new Pato();
 
-  cuadrado.area = 100;
-
-  print('area: ${cuadrado.calculaArea()}');
-
-  print('lado: ${cuadrado.lado}');
-  print('area get: ${cuadrado.area}');
+  sonidoAnimal(perro);
+  sonidoAnimal(gato);
+  sonidoAnimal(pato);
 }
 
-class Cuadrado {
-  double lado; // lado * lado
+void sonidoAnimal(Animal animal) {
+  animal.emitirSonido();
+}
 
-  double get area {
-    return this.lado * this.lado;
-  }
+abstract class Animal {
+  int? patas;
+  Animal();
 
-  set area(double valor) {
-    this.lado = math.sqrt(valor);
-  }
+  void emitirSonido();
+}
 
-  Cuadrado(double lado) : this.lado = lado;
+class Perro implements Animal {
+  int? patas;
+  void emitirSonido() => print('Guauuuu');
+}
 
-  double calculaArea() {
-    return this.lado * this.lado;
-  }
+class Gato implements Animal {
+  int? patas;
+  int? cola;
+  void emitirSonido() => print('Miauu');
+}
+
+class Pato implements Animal {
+  int? patas;
+  int? alas;
+  int? pico;
+  void emitirSonido() => print('Kuuuack');
 }
