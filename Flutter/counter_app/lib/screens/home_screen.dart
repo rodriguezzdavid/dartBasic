@@ -31,7 +31,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      //floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterTop,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      //floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
+        hoverElevation: 50,
         child: Icon(Icons.pedal_bike_rounded),
         onPressed: () {
           print('object');
