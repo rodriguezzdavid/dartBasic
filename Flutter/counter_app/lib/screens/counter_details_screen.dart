@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CounterScreen> createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+  int steps = 0;
+  int km = 0;
 
   @override
   Widget build(BuildContext context) {
     const fontSize30 = TextStyle(fontSize: 30);
-    int steps = 0;
-    int km = 0;
 
     return Scaffold(
       backgroundColor: Colors.pinkAccent,
@@ -39,6 +45,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           steps++;
           km += 240;
+          setState(() {});
           print('object $steps - $km');
         },
       ),
