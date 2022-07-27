@@ -37,17 +37,42 @@ class _CounterScreenState extends State<CounterScreen> {
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterTop,
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: FloatingActionButton(
-        hoverElevation: 50,
-        child: const Icon(Icons.pedal_bike_rounded),
-        onPressed: () {
-          steps++;
-          km += 240;
-          setState(() {});
-          print('object $steps - $km');
-        },
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            hoverElevation: 50,
+            child: const Icon(Icons.data_exploration),
+            onPressed: () {
+              steps -= 1;
+              km -= 165;
+              setState(() {});
+              print('object $steps - $km');
+            },
+          ),
+          FloatingActionButton(
+            hoverElevation: 50,
+            child: const Icon(Icons.pedal_bike_rounded),
+            onPressed: () {
+              steps++;
+              km += 165;
+              setState(() {});
+              print('object $steps - $km');
+            },
+          ),
+          FloatingActionButton(
+            hoverElevation: 50,
+            child: const Icon(Icons.woo_commerce_outlined),
+            onPressed: () {
+              steps = 0;
+              km = 0;
+              setState(() {});
+              print('object $steps - $km');
+            },
+          ),
+        ],
       ),
     );
   }
