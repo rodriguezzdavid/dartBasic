@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Listview1Screen extends StatelessWidget {
+  final options = const ['One Piece', 'Dragon Ball', 'Ranma 1/2', 'Naruto'];
   const Listview1Screen({Key? key}) : super(key: key);
 
   @override
@@ -9,17 +10,15 @@ class Listview1Screen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Listview type #1'),
         ),
-        body: ListView(
-          children: [
-            Text('Vamos despacio que tengo prisa'),
-            Text('Fernando Herrera'),
-            Text('Listview'),
-            Text('Scott'),
-            Text('Asad0'),
-            Text('TOOL'),
-            Text('Eminem'),
-            Text('Giant'),
-          ],
-        ));
+        body: ListView(children: [
+          ...options
+              .map((animes) => ListTile(
+                    title: Text(animes),
+                    focusColor: Colors.cyanAccent.shade700,
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    visualDensity: VisualDensity.standard,
+                  ))
+              .toList(),
+        ]));
   }
 }
