@@ -5,10 +5,21 @@ class Listview1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Listview1Screen'),
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Listview type #1'),
+        ),
+        body: ListView(
+          children: [
+            Text('Vamos despacio que tengo prisa'),
+            Text('Fernando Herrera'),
+            Text('Listview'),
+            Text('Scott'),
+            Text('Asad0'),
+            Text('TOOL'),
+            Text('Eminem'),
+            Text('Giant'),
+          ],
+        ));
   }
 }
