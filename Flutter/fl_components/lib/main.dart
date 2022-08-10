@@ -1,4 +1,5 @@
-import 'package:fl_components/screens/listview1_screen.dart';
+//import 'package:fl_components/screens/listview1_screen.dart';
+import 'package:fl_components/screens/listview2_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const Listview1Screen());
+        home: const Listview2Screen());
   }
 }

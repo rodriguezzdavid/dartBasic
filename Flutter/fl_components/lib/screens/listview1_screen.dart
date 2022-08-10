@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Listview1Screen extends StatelessWidget {
-  final options = const ['One Piece', 'Dragon Ball', 'Ranma 1/2', 'Naruto'];
+  final options = const [
+    'One Piece',
+    'Dragon Ball',
+    'Ranma 1/2',
+    'Naruto',
+    'Kimetsu No Yaiba'
+  ];
   const Listview1Screen({Key? key}) : super(key: key);
 
   @override
@@ -14,11 +20,14 @@ class Listview1Screen extends StatelessWidget {
           ...options
               .map((animes) => ListTile(
                     title: Text(animes),
-                    focusColor: Colors.cyanAccent.shade700,
-                    trailing: Icon(Icons.arrow_forward_ios),
+                    trailing: const Icon(Icons.arrow_forward_ios),
                     visualDensity: VisualDensity.standard,
                   ))
               .toList(),
+          Divider(),
+          Text('Aventura'),
+          Divider(),
+          Text('Echido'),
         ]));
   }
 }
