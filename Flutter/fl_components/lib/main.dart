@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:fl_components/router/app_routes.dart';
 import 'package:fl_components/screens/screens.dart';
 
 void main() {
@@ -13,15 +14,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'POKEMON APP',
-        initialRoute: 'home',
-        routes: {
-          'home': (BuildContext context) => const HomeScreen(),
-          'listview1': (BuildContext context) => const Listview1Screen(),
-          'listview2': (BuildContext context) => const Listview2Screen(),
-          'alert': (BuildContext context) => const AlertScreen(),
-          'card': (BuildContext context) => const CardScreen(),
-        });
+      debugShowCheckedModeBanner: false,
+      title: 'NAVIGATOR',
+      initialRoute: AppRoutes.initialRoute,
+      routes: {
+        'home': (BuildContext context) => const HomeScreen(),
+        'listview1': (BuildContext context) => const Listview1Screen(),
+        'listview2': (BuildContext context) => const Listview2Screen(),
+        'alert': (BuildContext context) => const AlertScreen(),
+        'card': (BuildContext context) => const CardScreen(),
+      },
+      onGenerateRoute: (settings) {
+        print(settings);
+
+        return MaterialPageRoute(
+          builder: (context) => const AlertScreen(),
+        );
+      },
+    );
   }
 }
