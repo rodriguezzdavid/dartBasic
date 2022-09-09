@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'NAVIGATOR',
       initialRoute: AppRoutes.initialRoute,
-      routes: AppRoutes.routes,
+      routes: AppRoutes.getAppRoutes(),
       //onGenerateRoute: (settings) => AppRoutes.onGenerateRoute(settings),
       onGenerateRoute: AppRoutes.onGenerateRoute,
     );
