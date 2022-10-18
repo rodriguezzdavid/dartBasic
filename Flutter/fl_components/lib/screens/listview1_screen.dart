@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class Listview1Screen extends StatelessWidget {
   final options = const [
-    'One Piece',
-    'Dragon Ball',
-    'Ranma 1/2',
-    'Naruto',
-    'Kimetsu No Yaiba'
+    'RagnarOk',
+    'La casa de papel',
+    'Sex Education',
+    'Rick & Morty',
+    'Stranger Things',
+    'Pablo Escobar',
+    'DAHMER',
+    'Disenchantment',
+    'F•R•I•E•N•D•S',
   ];
   const Listview1Screen({Key? key}) : super(key: key);
 
@@ -25,9 +29,9 @@ class Listview1Screen extends StatelessWidget {
                   ))
               .toList(),
           Divider(),
-          Text('Aventura'),
+          Text('Series'),
           Divider(),
-          Text('Echido'),
+          Text('Genero'),
         ]));
   }
 }

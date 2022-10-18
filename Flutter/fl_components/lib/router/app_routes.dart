@@ -25,7 +25,7 @@ class AppRoutes {
         icon: Icons.my_library_books_sharp),
     MenuOption(
         route: 'alert',
-        name: 'A-l-e-r-t-a  !\n',
+        name: 'Alerta  !',
         screen: const AlertScreen(),
         icon: Icons.add_alarm_rounded),
     MenuOption(
@@ -39,7 +39,9 @@ class AppRoutes {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
     for (final option in menuOptions) {
-      appRoutes.addAll({option.route: (BuildContext context) => option.screen});
+      appRoutes.addAll({
+        option.route: (BuildContext context) => option.screen
+        });
     }
 
     return appRoutes;
