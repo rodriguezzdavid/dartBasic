@@ -2,7 +2,15 @@ import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardType2 extends StatelessWidget {
-  const CustomCardType2({super.key});
+
+  final String imageUrl;
+  final String? subTitle;
+
+  const CustomCardType2({
+      super.key,
+      required this.imageUrl,
+      this.subTitle
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +23,20 @@ class CustomCardType2 extends StatelessWidget {
       shadowColor: AppTheme.primaryColor.withOpacity(0.7),
       child: Column(
         children: [
-          const FadeInImage(
-            image: NetworkImage('https://img1.ak.crunchyroll.com/i/spire2/a6e36e575f9d9d38d1cf40d6769980a31651739960_main.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
+          FadeInImage(
+            image: NetworkImage( imageUrl ),
+            placeholder: const AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
             height: 230,
             fit: BoxFit.cover,
-            fadeInDuration: Duration(milliseconds: 300),
+            fadeInDuration: const Duration(milliseconds: 300),
 
           ),
-          Container(
-            alignment: AlignmentDirectional.centerEnd,
-            padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
-            child: Text('Rey pirata')
+          if ( subTitle != null)
+            Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+              child: Text( subTitle ?? 'No title' )
             )
         ]),
     );
