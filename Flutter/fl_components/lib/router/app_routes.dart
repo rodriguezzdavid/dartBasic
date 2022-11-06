@@ -37,7 +37,12 @@ class AppRoutes {
         route: 'avatar',
         name: 'Avatar',
         screen: const AvatarScreen(),
-        icon: Icons.assured_workload_outlined),
+        icon: Icons.castle_outlined),
+      MenuOption(
+        route: 'animated',
+        name: 'Animated Container',
+        screen: const AnimatedScreen(),
+        icon: Icons.catching_pokemon_rounded),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {

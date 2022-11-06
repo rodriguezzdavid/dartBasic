@@ -20,7 +20,7 @@ class AvatarScreen extends StatelessWidget {
       ),
       body: Center(
         child: CircleAvatar(
-          maxRadius: 100,
+          maxRadius: 150,
           backgroundImage: NetworkImage('https://i.pinimg.com/736x/53/9b/06/539b067e7d8609ac5776a25a3eb54978--one-piece-comic-book.jpg'),)
       ),
     );
