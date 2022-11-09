@@ -36,7 +36,20 @@ class AppTheme {
         primary: Colors.indigo,
         shape: const StadiumBorder(),
         elevation: 0,
-      ),)
+      ),
+    ),
+
+    //Input Decoration Form
+    inputDecorationTheme: const InputDecorationTheme(
+      floatingLabelStyle: TextStyle( color: primaryColor ),
+      border: OutlineInputBorder(
+        borderSide: BorderSide( color: primaryColor ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(10),
+          topRight: Radius.circular(10)
+        )
+      )
+    )
   );
 
 
@@ -56,6 +69,18 @@ class AppTheme {
     // TextButton Theme
     textButtonTheme: TextButtonThemeData( 
       style: TextButton.styleFrom( primary: secondColor )
+    ),
+
+    //Input Decoration Form
+    inputDecorationTheme: const InputDecorationTheme(
+      floatingLabelStyle: TextStyle( color: primaryColor ),
+      border: OutlineInputBorder(
+        borderSide: BorderSide( color: primaryColor ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(10),
+          topRight: Radius.circular(10)
+        )
+      )
     )
   );
 }

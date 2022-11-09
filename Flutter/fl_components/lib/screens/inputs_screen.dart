@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class InputsScreen extends StatelessWidget {
   const InputsScreen({super.key});
 
@@ -12,33 +14,15 @@ class InputsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric( horizontal: 20, vertical: 10),
           child: Column(
-            children: [
-              TextFormField(
-                autofocus: true,
-                initialValue: '',
-                textCapitalization: TextCapitalization.words,
-                onChanged: ((value) {
-                  print(value);
-                }),
-                validator: (value) {
-                  if (value == null ) return 'Este campo es requerido';
-                  return value.length < 3 ? 'Minimo 3 letras' : null;
-                },
-                decoration: const InputDecoration(
-                  hintText: 'User name',
-                  labelText: 'Name',
-                  helperText: 'Solo letras',
-                  suffixIcon: Icon( Icons.sentiment_neutral_sharp),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ))
-                  ),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-              )
+            children: const [
+              CustomInputField(labelText: 'Nombre', hintText: 'Nombre del usuario', helperText: 'Solo letras', icon: Icons.kitesurfing_sharp, suffixIcon: Icons.sentiment_neutral_sharp ),
+              SizedBox(height : 20),
+              CustomInputField(labelText: 'Ocupacion', hintText: 'Ocupacion', helperText: '', icon: Icons.balcony_sharp, suffixIcon: Icons.temple_hindu_rounded ),
             ]
-            ),),)
+            ),
+          ),
+        )
     );
   }
 }
+
