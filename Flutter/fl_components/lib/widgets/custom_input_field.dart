@@ -7,6 +7,11 @@ class CustomInputField extends StatelessWidget {
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
+  final TextInputType? keyboardType;
+  final bool obscureText;
+
+  final String formProperty;
+  final Map<String, String> formValues;
 
   const CustomInputField({
     Key? key,
@@ -15,6 +20,10 @@ class CustomInputField extends StatelessWidget {
     this.helperText,
     this.icon,
     this.suffixIcon,
+    this.keyboardType,
+    this.obscureText = false,
+    required this.formProperty,
+    required this.formValues,
   }) : super(key: key);
 
   @override
@@ -23,14 +32,15 @@ class CustomInputField extends StatelessWidget {
       autofocus: true,
       initialValue: '',
       textCapitalization: TextCapitalization.words,
-      onChanged: ((value) {
-        print(value);
-      }),
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      onChanged: (value) => formValues[formProperty] = value,
       //PUEDE SER QUE ESTE VALOR SEA REQUERIDO O NO 
       validator: (value) {
         if (value == null ) return 'Este campo es requerido';
         return value.length < 3 ? 'Minimo 3 letras' : null;
       },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
@@ -40,7 +50,6 @@ class CustomInputField extends StatelessWidget {
         //Icon ( Icons.kitesurfing_sharp)
         //Icon( Icons.sentiment_neutral_sharp)
       ),
-      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 }
