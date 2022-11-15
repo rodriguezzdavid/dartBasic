@@ -16,11 +16,11 @@ class InputsScreen extends StatelessWidget {
       'name'     : 'Juan',
       'job'      : 'Developer',
       'emal'     : 'gm@fi.cr',
-      'password' : '*******'
+      'password' : '*******',
+      'role'     : 'Admin'
     };
 
     return Scaffold(
-      key: myFormKey,
       appBar: AppBar(
         title: Text('Text Forms'),),
       body: SingleChildScrollView(
@@ -41,7 +41,21 @@ class InputsScreen extends StatelessWidget {
 
                 CustomInputField(labelText: 'Password', hintText: 'Contraseña', obscureText: true ,icon: Icons.key_outlined, suffixIcon: Icons.password, formProperty: 'password', formValues: formValues),
                 const SizedBox(height : 20),
-          
+
+                DropdownButtonFormField<String>(
+                  items: const [
+                    DropdownMenuItem(value: 'Admin', child: Text('Admin')),
+                    DropdownMenuItem(value: 'Superuser', child: Text('Superuser')),
+                    DropdownMenuItem(value: 'Developer', child: Text('Developer')),
+                    DropdownMenuItem(value: 'Jr. Developer', child: Text('Jr. Developer')),
+                  ],
+                  onChanged: (value) {
+                    print(value);
+                    formValues['role'] = value ?? 'Admin';
+                  },
+                ),
+                const SizedBox(height : 20),
+
                 ElevatedButton(
                   child: const SizedBox(
                     width: double.infinity,
@@ -52,10 +66,10 @@ class InputsScreen extends StatelessWidget {
                     // *desactivar teclado
                     FocusScope.of(context).requestFocus(FocusNode());
                     
-                    /*if( !myFormKey.currentState!.validate() ){
+                    if( !myFormKey.currentState!.validate() ){
                       print('Formulario no válido');
                       return;
-                    }*/
+                    }
                     //* imprimir valores del formulario
                     print(formValues);
                   }, 
