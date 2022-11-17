@@ -53,7 +53,7 @@ class _SliderScreenState extends State<SliderScreen> {
                   fit: BoxFit.contain,
                   width: _sliderValue,
                 ),
-                const SizedBox(height: 50,)
+                const SizedBox(height: 20,)
               ],
             ),
               
