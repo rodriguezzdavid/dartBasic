@@ -20,7 +20,7 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     super.initState();
     
     scrollController.addListener(() {
-        // print(' ${scrollController.position.pixels}, ${scrollController.position.maxScrollExtent} ');
+        print(' ${scrollController.position.pixels}, ${scrollController.position.maxScrollExtent} ');
         if ( (scrollController.position.pixels + 500) >= scrollController.position.maxScrollExtent )  {
           // add5();
           fetchData();
@@ -79,8 +79,12 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Listview Builder - Inifinite Scroll'),
+      ),
       body: MediaQuery.removePadding(
         context: context,
+        //Remover padding --[notch]--
         removeTop: true,
         removeBottom: true,
         child: Stack(
@@ -94,11 +98,11 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
                 controller: scrollController,
                 itemCount: imagesIds.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return FadeInImage(
+                  return const FadeInImage(
                     width: double.infinity,
                     height: 300,
                     fit: BoxFit.cover,
-                    placeholder: const AssetImage('assets/jar-loading.gif'), 
+                    placeholder: AssetImage('assets/jar-loading.gif'), 
                     image: NetworkImage('https://as01.epimg.net/meristation/imagenes/2022/05/08/noticias/1651998508_361943_1652017073_noticia_normal.jpg')
                   );
                 },
